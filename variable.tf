@@ -1,3 +1,9 @@
-variable "cidr" {
-  default = "55.45.0.0/16"
-}
+variable "cidr" {}
+variable "sn-cidr" {}
+variable "access_key" {}
+variable "secret_key" {}
+variable "region" {}
+variable "project" {}
+variable "az" {}
+variable "ami" {}
+variable "instance_type" {}
