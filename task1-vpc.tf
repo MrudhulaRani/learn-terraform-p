@@ -24,6 +24,10 @@ resource "aws_subnet" "task1-sn" {
 
 resource "aws_route_table" "task1-rt" {
   vpc_id = "${aws_vpc.task-vpc1.id}"
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = "${aws_internet_gateway.task1-igw.id}"
+  }
   tags {
     Name="rt-${var.project}"
   }
@@ -35,7 +39,7 @@ resource "aws_route_table_association" "task1-rt-ass" {
 }
 
 resource "aws_security_group" "task1-sg" {
-  name="sg-${var.project}"
+  name="${var.project}"
   vpc_id = "${aws_vpc.task-vpc1.id}"
   ingress {
     from_port = 22
